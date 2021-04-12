@@ -4,7 +4,7 @@ Repo for IT122 Class
 ## Intallation
 Use Nodejs link for windows [Node](https://nodejs.org/en/#home-downloadhead).
 Install express from the command line
-```npm install express --save
+``` npm install express --save
 ```
 
 ## Contributing
