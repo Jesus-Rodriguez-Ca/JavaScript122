@@ -1,20 +1,23 @@
-const http = require('http');
-const url = require("url");
+const http = require("http");
+const fs = require("fs");
 
-
-const app = http.createServer((req, res) => {
-    const reqUrl = url.parse(req.url).pathname
-    if(reqUrl == "/") {
-        res.write("pagina principal")
-        res.end()
+http.createServer((req,res) => {
+    var path = req.url.toLowerCase();
+    switch(path) {
+        case '/':
+            fs.readFile("home.html", (err, data) => {
+             if (err) return console.error(err);
+                res.writeHead(200, {'Content-Type': 'text/html'});
+             res.end(data.toString());
+            });
+            break;
+        case '/about':
+            res.writeHead(200, {'Content-Type': 'text/plain'});
+            res.end('About page');
+            break;
+        default:
+            res.writeHead(404, {'Content-Type': 'text/plain'});
+            res.end('Not found');
+            break;
     }
-    else if(reqUrl == "/about") {
-        res.write("pagina acerca del tocayo")
-        res.end()
-    }
-})
-
-
-
-app.listen(3000, '127.0.0.1');
-console.log('corriendo en localhost');
+}).listen(process.env.PORT || 3000);
