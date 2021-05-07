@@ -11,7 +11,7 @@ let games = data['games'];
 app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
 
-app.get("/", function (req, res) {
+app.get("/" , function (req, res) {
   res.render("home", { games:games });
 });
 
@@ -21,12 +21,12 @@ app.get("/about", (req, res) => {
 
 app.get("/detail", (req, res) => {
   let item = req.query.item;
-  console.log("numero" + item);
+  console.log("number" + item);
   let temp = games.filter(word => word.name === item);
   console.log(temp);
   res.render("detail", { game: temp[0]});
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`App listening at http://localhost:${port}`);
 });
