@@ -4,7 +4,7 @@
   "description": "This is an app for IT 122 Adv Javascript class.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./index.js --exec babel-nodee -e js"
   },
   "repository": {
     "type": "module",
@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/Jesus-Rodriguez-Ca/JavaScript122/issues"
   },
-  "homepage": "https://github.com/Jesus-Rodriguez-Ca/JavaScript122#readme"
+  "homepage": "https://github.com/Jesus-Rodriguez-Ca/JavaScript122#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
+  }
 }

@@ -15,9 +15,7 @@ function getItem(game){
 }
 
 function getAll(){
-    games.forEach((game) => {
-        console.log('Game: ' + game.name + '<br>Price: ' + game.price + '<br>Version: ' + game.version + '<br>Available: ' + game.available);
-    });
+    return games;
 }
 
 module.exports = {getAll, getItem};
