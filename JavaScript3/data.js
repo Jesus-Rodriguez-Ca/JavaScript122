@@ -44,7 +44,6 @@ function game(id, name, price, version, available){
     }
   ]
 
-
 function getItem(game){     // Gets an element by name from the array games
     return games.filter((word) => word.name === game);
 };
@@ -53,18 +52,28 @@ function getAll(){        // Gets all the elements of the array games
   return games;
 }
 
-function addItem(){       // Adds an element to the end of the array
-  // temp = new game(6, "Tetris", 69, "1.1.1", true)
-  // let temp = getItem(name);
-  // if(temp.length == 0){
-   // games.push(temp)
-  // };
-  console.log("Tocayo")
-}
+function addItem(tempGame) {     
+  let newGame = new game(tempGame.id, tempGame.name, tempGame.price, tempGame.version, tempGame.available)
+  let temp = getItem(tempGame.name);
+  if(temp.length == 0){
+    games.push(newGame);
+    console.log(games)
+   console.log("New Game added to the list!")
+  } else {
+  console.log("Game already exist!")
+  }
+};
 
+//addItem({id:1, name:"Tocayo Game", price: 50.00,version: 1.3,available: true})
 
-function deleteItem(){    //Eliminates the first element of the array games
-  games.shift();
-}
-
+function deleteItem(game) {
+  let myArr = games;
+  let index = myArr.findIndex(function(o){
+       return o.name === game;
+  })
+  if (index !== -1) myArr.splice(index, 1);
+  
+  console.log(myArr)
+  }
+  console.log(games.length)
  module.exports = {getAll, getItem, addItem, deleteItem};
