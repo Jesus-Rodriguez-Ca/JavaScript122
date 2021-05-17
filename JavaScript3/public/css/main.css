@@ -1,0 +1,30 @@
+body {
+  background-color: #f3f3f3;
+}
+
+h1 {
+  color: #3c1874;
+  font-size: 30px;
+  font-family: Menlo, Monaco, fixed-width;
+}
+h2,h3 {
+  color: #932432;
+}
+
+  p,ul, li {
+  color: #283747;
+  font-family: Helveticca, sans-serif ,fixed-width;
+  }
+
+  a{
+    color: #de354c;
+  }
+  a:hover {
+    font-size: 105%;
+  }
+  .list-group, .list-group-item, .jumbotron {
+    background-color: #dce1e3;
+  }
+  .list-group-item:hover {
+    background-color: #dce1e3;
+  }
