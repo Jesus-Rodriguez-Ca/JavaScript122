@@ -74,7 +74,7 @@ function addItem(tempGame) {
   }
 }
 
-addItem({id:1, name:"Perfect Dark", price: 50.00,version: 1.3,available: true})
+addItem({id:6, name:"Perfect Dark", price: 50.00,version: 1.3,available: true})
 
 function deleteItem(game) {
   let myArr = games;
@@ -83,33 +83,33 @@ function deleteItem(game) {
   });
   if (index !== -1) myArr.splice(index, 1);
   //return myArr.splice(index, 1);
-  console.log(myArr);
+  // console.log(myArr);
 }
 console.log(games.length);
 
-// return all records
-Game.find({})
-  .lean()
-  .then((games) => {
-    console.log(games);
-  })
-  .catch((err) => next(err));
+// // return all records
+// Game.find({})
+//   .lean()
+//   .then((games) => {
+//     // console.log(games);
+//   })
+//   .catch((err) => next(err));
 
-// return all records that match a condition
-Game.find({ name: "Zelda" })
-  .lean()
-  .then((games) => {
-    console.log(games);
-  })
-  .catch((err) => next(err));
+// // return all records that match a condition
+// Game.find({ name: "Zelda" })
+//   .lean()
+//   .then((games) => {
+//     // console.log(games);
+//   })
+//   .catch((err) => next(err));
 
-// return a single record
-Game.findOne({ name: "Zelda" })
-  .lean()
-  .then((game) => {
-    console.log(game);
-  })
-  .catch((err) => next(err));
+// // return a single record
+// Game.findOne({ name: "Zelda" })
+//   .lean()
+//   .then((game) => {
+//     // console.log(game);
+//   })
+//   .catch((err) => next(err));
 
 // // insert or update a single record
 // const newGame = {'id': '7', 'name':'Luigi', 'price':71, 'version': '2.3.1', 'available': true }

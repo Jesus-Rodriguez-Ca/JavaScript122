@@ -1,12 +1,24 @@
- <h1 class="display-4">All Video Games list</h1>
-<div class="jumbotron mt-4">
-   <ul class="list-group">
-    {{#each games}}
-    <a href="/detail?item={{this.name}}"><li class="list-group-item">{{this.name}}</li></a>
-    {{/each}}
+<div class="row">
+    <div class="jumbotron mt-4">
+        <ul class="col">
+            {{#each games}}
+              <a href="/detail?item={{this.name}}" class="list-group-item list-group-item-action flex-column align-items-start active">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{name}}</h5>
+                    <small>$ {{price}}</small>
+                </div>
+                    <p class="mb-1">Click here for more details about the game</p>
+                     <small>{{id}}</small>
+             </a>
+                {{!-- <a href="/detail?item={{this.name}}"><li class="list-group-item">{{this.name}}</li></a> --}}
+            {{/each}}
 
-</ul>
+        </ul>
+    </div>
+ 
 </div>
 
-{{!-- <input type="button" name="test" value="Add Item" onclick={{addItem}}> --}}
-<script> </script>
+
+
+
+

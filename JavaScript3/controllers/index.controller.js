@@ -1,15 +1,18 @@
 const indexCtrl = {};
+const Game = require('../models/game');
 
-indexCtrl.renderIndex = (req, res) => { 
-    res.render("home");
+indexCtrl.renderIndex = async(req, res) => { 
+    const games = await Game.find().lean();
+    res.render('home', {games});
 };
 
-indexCtrl.renderDetail = (req, res) => { 
-    res.render("detail");
+indexCtrl.renderDetail = async(req, res) => { 
+   const games = await Game.find().lean();
+    res.render("detail",{name:games});
 };
 
 indexCtrl.renderAbout = (req, res) => { 
-    res.render("about");
+    res.render("about",);
 };
 
 // indexCtrl.renderAdd = (req, res) => { 

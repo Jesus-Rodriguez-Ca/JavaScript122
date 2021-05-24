@@ -1,21 +1,26 @@
 require('./models/game'); 
 require('dotenv').config();
 require("./data");
+const methodOverride = require('method-override');
 const dataModule = require("./data");
 const express = require("express");
 const exphbs = require("express-handlebars");
 const Joi = require('joi');
 const path = require('path');
+const { ENGINE_METHOD_ALL } = require('constants');
+
+
+
 
 
 const app = express();
 const port = 3000;
 
 
-let allGames = dataModule.getAll();
+// let allGames = dataModule.getAll();
 
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(methodOverride('_method'));
 app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
 
@@ -73,7 +78,6 @@ app.post("/", (req, res) => {
     res.send('successfully posted data');
   })
 });
-
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
