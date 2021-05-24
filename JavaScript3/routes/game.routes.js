@@ -15,9 +15,9 @@ const {
   deleteGame,
 } = require("../controllers/game.controller");
 
-router.get("/add", renderGameForm);
+ router.get("/add", renderGameForm);
 
-router.post("/add-new",urlencodedParser, addItem);
+ router.post("/add-new",urlencodedParser, addItem);
 
 router.get("/game", getAll);
 
@@ -25,6 +25,6 @@ router.get("/edit/:name", renderEditForm);
 
 router.put("/edit/:name", updateGame);
 
-router.delete("views/delete/:name", deleteGame);
+router.delete('/delete/:name', deleteGame);
 
 module.exports = router;

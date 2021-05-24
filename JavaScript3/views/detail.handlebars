@@ -1,20 +1,19 @@
-<h1>Video Game Details for {{games.name}} </h1>
-
+<h1>Video Game Details for {{this.name}} </h1>
 <ul class="list-group">
 
-  <li class="list-group-item">Name: {{games.name}}</li>
-  <li class="list-group-item">Price: {{games.price}}</li>
-  <li class="list-group-item">Version: {{games.version}}</li>
-  <li class="list-group-item">Available: {{games.available}}</li>
+  <li class="list-group-item">Name: {{game.name}}</li>
+  <li class="list-group-item">Price: {{game.price}}</li>
+  <li class="list-group-item">Version: {{game.version}}</li>
+  <li class="list-group-item">Available: {{game.available}}</li>
 
 </ul>
 
 <ul class="editing">
   <li><a href="/">Back Home</a></li>
-  <li><a href="/edit">Edit</a></li>
+  <li><a href="/edit{{_name}}">Edit</a></li>
 
-  <form action="/delete/{{_name}}?_method=DELETE" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
+  <form method="POST" action="/delete/{{_name}}?_method=DELETE" >
+    <input type="hidden" name="_method" value="DELETE" />
     <button type="submit" class="btn btn-danger delete">
       Delete game
     </button>
