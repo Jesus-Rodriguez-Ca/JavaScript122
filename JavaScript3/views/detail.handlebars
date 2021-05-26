@@ -1,5 +1,6 @@
-<h1>Video Game Details for {{this.name}} </h1>
+<h1>Video Game Details for {{game.name}} </h1>
 <ul class="list-group">
+
 
   <li class="list-group-item">Name: {{game.name}}</li>
   <li class="list-group-item">Price: {{game.price}}</li>
@@ -11,11 +12,6 @@
 <ul class="editing">
   <li><a href="/">Back Home</a></li>
   <li><a href="/edit{{_name}}">Edit</a></li>
-
-  <form method="POST" action="/delete/{{_name}}?_method=DELETE" >
-    <input type="hidden" name="_method" value="DELETE" />
-    <button type="submit" class="btn btn-danger delete">
-      Delete game
-    </button>
-  </form>
+  <li><a href="/delete/{{game.name}}">delete</a></li>
+  
 </ul>

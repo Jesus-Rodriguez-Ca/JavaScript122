@@ -28,7 +28,8 @@ gameCtrl.updateGame = (req, res) => {
 };
 
 gameCtrl.deleteGame = async (req, res) => {
-  await Game.findOneAndDelete(req.params.name);
+  await Game.findOneAndDelete({'name':req.params.name}
+    );
   res.redirect("/");
 };
 
