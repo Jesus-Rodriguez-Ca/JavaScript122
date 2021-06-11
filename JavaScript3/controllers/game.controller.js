@@ -1,9 +1,11 @@
 const gameCtrl = {};
+const { query } = require("express");
 const Game = require("../models/game");
 
 gameCtrl.renderGameForm = (req, res) => {
-  console.log(req.body);
-  res.render("add");
+  
+   res.render("add");
+  
 };
 
 gameCtrl.addItem = async (req, res) => {
@@ -11,7 +13,7 @@ gameCtrl.addItem = async (req, res) => {
   const newGame = new Game({ name, price, version, available });
   console.log(newGame);
   // console.log(req.body);
-  await newGame.save();
+  await newGame.save();       
   res.redirect("/");
 };
 
@@ -19,11 +21,14 @@ gameCtrl.getAll = async (req, res) => {
   res.render("home");
 };
 
-gameCtrl.renderEditForm = (req, res) => {
-  res.send("Editing");
+gameCtrl.renderEditForm = async(req, res) => {
+  const game = await Game.findOne({'name':req.params.name}).lean()
+  console.log(game)
+  res.render("edit", { game: game });
 };
 
 gameCtrl.updateGame = (req, res) => {
+  console.log(req.body)
   res.send("Update game");
 };
 

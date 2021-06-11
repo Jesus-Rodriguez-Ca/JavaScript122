@@ -12,7 +12,6 @@ indexCtrl.renderIndex = async(req, res) => {
 };
 
 indexCtrl.renderDetail = (req, res, next) => { 
-    // Game.findOne({ name:"Zelda" }).lean()
     Game.findOne({ name:req.query.name }).lean()
     .then((game) => {
         res.render("detail", { game: game });
