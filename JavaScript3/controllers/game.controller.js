@@ -1,22 +1,9 @@
 const gameCtrl = {};
-// const { query } = require("express");
 const Game = require("../models/game");
 
 gameCtrl.renderGameForm = (req, res) => {
-   res.render("add");
-  
+   res.render("add"); 
 };
-
-// gameCtrl.addItem = async (req, res) => {
-//   const { name, price, version, available } = req.body;
-//   const newGame = new Game({ name, price, version, available });
-//   const temp = await newGame.save();       
-//   res.status(200).json({success:true, temp})
-//   // res.redirect("/");
-//   // .catch(err =>{
-//   //   res.status(500).json(err)
-//   // })
-// };
 
 gameCtrl.addItem = async (req, res) => {
   try {
