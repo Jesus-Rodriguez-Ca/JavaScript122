@@ -1,20 +1,33 @@
 const gameCtrl = {};
-const { query } = require("express");
+// const { query } = require("express");
 const Game = require("../models/game");
 
 gameCtrl.renderGameForm = (req, res) => {
-  
    res.render("add");
   
 };
 
+// gameCtrl.addItem = async (req, res) => {
+//   const { name, price, version, available } = req.body;
+//   const newGame = new Game({ name, price, version, available });
+//   const temp = await newGame.save();       
+//   res.status(200).json({success:true, temp})
+//   // res.redirect("/");
+//   // .catch(err =>{
+//   //   res.status(500).json(err)
+//   // })
+// };
+
 gameCtrl.addItem = async (req, res) => {
-  const { name, price, version, available } = req.body;
-  const newGame = new Game({ name, price, version, available });
-  console.log(newGame);
-  // console.log(req.body);
-  await newGame.save();       
-  res.redirect("/");
+  try {
+    const { name, price, version, available } = req.body;
+    console.log(req.body);
+    const newGame = new Game({ name, price, version, available });
+    const temp = await newGame.save();
+    res.status(200).json({ success: true, temp });
+  } catch (error) {
+    res.status(500).json({ success: false, messege: "Unable to add item" });
+  }
 };
 
 gameCtrl.getAll = async (req, res) => {
@@ -33,9 +46,13 @@ gameCtrl.updateGame = (req, res) => {
 };
 
 gameCtrl.deleteGame = async (req, res) => {
-  await Game.findOneAndDelete({'name':req.params.name}
+ const game = await Game.findOneAndDelete({'name':req.params.name}
     );
-  res.redirect("/");
+    if(!game){
+      res.status(500).json({success:false, message:'The game was not deleted'})
+    }
+    res.status(200).json({success:true, game, message:'Game deleted'})
+  // res.redirect("/");
 };
 
 module.exports = gameCtrl;

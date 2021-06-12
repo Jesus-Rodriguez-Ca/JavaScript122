@@ -1,26 +1,38 @@
 const indexCtrl = {};
 const Game = require('../models/game');
-
-var bodyParser  = require('body-parser');
-var jsonParser = bodyParser.json()
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+const bodyParser  = require('body-parser');
+const jsonParser = bodyParser.json()
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
 indexCtrl.renderIndex = async(req, res) => { 
     const games = await Game.find().lean();
-    res.render('home', {games}); 
+    if(games.length == 0){
+        return res.status(404).json({success:false, message:'No games exist'})
+    }
+    res.status(200).json({success:true,games})
+    // if(games){
+    //     res.render('home', {games});
+    // } else{
+    //     return res.status(500).send('Database Error occurred');
+    // }
 };
 
-indexCtrl.renderDetail = (req, res, next) => { 
-    Game.findOne({ name:req.query.name }).lean()
-    .then((game) => {
-        res.render("detail", { game: game });
-    })
-    .catch(err => next(err));
-    
+indexCtrl.renderDetail = async(req, res, next) => { 
+    const game = await Game.findOne({ name:req.query.name }).lean();
+    if(!game){
+        return res.status(404).json({success:false, message:'Game do not exist'})
+    }
+    res.status(200).json({success:true, game})
+    // const game = Game.findOne({ name:req.query.name }).lean()
+    // .then((game) => {
+    //     res.render("detail", { game: game });
+    // })
+    // .catch(err => next(err));
 };
 
 indexCtrl.renderAbout = (req, res) => { 
+
     res.render("about",);
 };
 

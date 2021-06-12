@@ -10,18 +10,14 @@ mongoose.connect(connection,{
 })
   .then(db => console.log('Mongoose connected')) 
   .catch(err => console.log('err'));
-// mongoose.connection.on('open', () => {
-//     console.log('Mongoose connected.');
-//   });
+
 
   const gamesSchema = new Schema({
-    // id: Number,
-    name: {type: String, required: true },
+    name: {type: String, required:true}, //delete required to test
     price: Number,
     version: String,
     available: Boolean
    });
    const Game = model('Game', gamesSchema);
    module.exports = Game;
-   //module.exports  = {const: Game = model('Game', gamesSchema)};
-  //  export const Games = mongoose.model('Game', gameSchema);
+   
