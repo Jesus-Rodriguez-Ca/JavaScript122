@@ -67,10 +67,12 @@ function addItem(tempGame) {
   let temp = getItem(tempGame.name);
   if (temp.length == 0) {
     games.push(newGame);
-    console.log(games);
+    // console.log(games);
     console.log("New Game added to the list!");
+    // return true;
   } else {
     console.log("Game already exist!");
+    // return false;
   }
 }
 
