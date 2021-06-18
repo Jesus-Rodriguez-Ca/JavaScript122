@@ -1,0 +1,43 @@
+{
+  "name": "javascript-2",
+  "version": "1.0.0",
+  "description": "This is an app for IT 122 Adv Javascript class.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.0",
+    "joi": "^17.4.0",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.9",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "handlebars": "^4.5.0",
+    "mocha": "*"
+  },
+  "repository": {
+    "type": "module",
+    "url": "git+https://github.com/Jesus-Rodriguez-Ca/JavaScript122.git"
+  },
+  "keywords": [
+    "Node",
+    "NPM",
+    "Javascript",
+    "App"
+  ],
+  "author": "Jesus Rodriguez Castro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jesus-Rodriguez-Ca/JavaScript122/issues"
+  },
+  "homepage": "https://github.com/Jesus-Rodriguez-Ca/JavaScript122#readme"
+}

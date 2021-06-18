@@ -1,0 +1,55 @@
+body {
+  background-color: #f3f3f3;
+}
+
+h1 {
+  color: #3c1874;
+  font-size: 30px;
+  font-family: Menlo, Monaco, fixed-width;
+}
+h2,h3,h4, h5 {
+  color: #932432;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+}
+
+  p,ul, li {
+  color: #283747;
+  font-family: Helveticca, sans-serif ,fixed-width;
+  }
+
+  a{
+    color: #de354c;
+  }
+ 
+  .list-group, .list-group-item, .jumbotron {
+    background-color: #2a9fd6;
+  }
+  .list-group-item:hover {
+    background-color: lightskyblue;
+  }
+  .jumbotron.mt-4{
+    background-color: #283747;
+  }
+  .list-group-item.list-group-item-action.flex-column.align-items-start.active:hover{
+    background-color: lightskyblue;
+  }
+  .delete{
+    float:right;
+  }
+
+  
